@@ -46,15 +46,86 @@ func TestFibonacciRecursion_40(t *testing.T) {
 }
 
 // PASS: TestFibonacciRecursion_50 (89.11s)
-func TestFibonacciRecursion_50(t *testing.T) {
-	result := fibonacciRecursion(50)
-	assert.Equal(t, fb50, result)
-}
+//func TestFibonacciRecursion_50(t *testing.T) {
+//	result := fibonacciRecursion(50)
+//	assert.Equal(t, fb50, result)
+//}
 
-// BenchmarkFibonacciRecursion_40
 // BenchmarkFibonacciRecursion_40-8   	       2	 706926721 ns/op
 func BenchmarkFibonacciRecursion_40(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		fibonacciRecursion(40)
+	}
+}
+
+func TestFibonacciLoop(t *testing.T) {
+	for n, expected := range fb {
+		result := fibonacciLoop(n)
+		assert.Equal(t, expected, result)
+	}
+}
+
+func TestFibonacciLoop_10(t *testing.T) {
+	result := fibonacciLoop(10)
+	assert.Equal(t, fb10, result)
+}
+
+func TestFibonacciLoop_20(t *testing.T) {
+	result := fibonacciLoop(20)
+	assert.Equal(t, fb20, result)
+}
+
+func TestFibonacciLoop_30(t *testing.T) {
+	result := fibonacciLoop(30)
+	assert.Equal(t, fb30, result)
+}
+
+// PASS: TestFibonacciLoop_40 (0.00s)
+func TestFibonacciLoop_40(t *testing.T) {
+	result := fibonacciLoop(40)
+	assert.Equal(t, fb40, result)
+}
+
+// PASS: TestFibonacciLoop_50 (0.00s)
+func TestFibonacciLoop_50(t *testing.T) {
+	result := fibonacciLoop(50)
+	assert.Equal(t, fb50, result)
+}
+
+// PASS: TestFibonacciLoop_60 (0.00s)
+func TestFibonacciLoop_60(t *testing.T) {
+	result := fibonacciLoop(60)
+	assert.Equal(t, fb60, result)
+}
+
+// PASS: TestFibonacciLoop_70 (0.00s)
+func TestFibonacciLoop_70(t *testing.T) {
+	result := fibonacciLoop(70)
+	assert.Equal(t, fb70, result)
+}
+
+// PASS: TestFibonacciLoop_80 (0.00s)
+func TestFibonacciLoop_80(t *testing.T) {
+	result := fibonacciLoop(80)
+	assert.Equal(t, fb80, result)
+}
+
+// PASS: TestFibonacciLoop_90 (0.00s)
+func TestFibonacciLoop_90(t *testing.T) {
+	result := fibonacciLoop(90)
+	assert.Equal(t, fb90, result)
+}
+
+// BenchmarkFibonacciLoop_40-8   	36849328	        28.1 ns/op
+func BenchmarkFibonacciLoop_40(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacciLoop(40)
+	}
+}
+
+// BenchmarkFibonacciLoop_90-8   	16818535	        60.9 ns/op
+func BenchmarkFibonacciLoop_90(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacciLoop(90)
 	}
 }
