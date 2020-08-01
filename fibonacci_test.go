@@ -129,3 +129,51 @@ func BenchmarkFibonacciLoop_90(b *testing.B) {
 		fibonacciLoop(90)
 	}
 }
+
+// PASS: TestFibonacciBinet (0.00s)
+func TestFibonacciBinet(t *testing.T) {
+	for n, expected := range fb {
+		result := fibonacciBinet(n)
+		assert.Equal(t, expected, result)
+	}
+}
+
+// PASS: TestFibonacciBinet_50 (0.00s)
+func TestFibonacciBinet_50(t *testing.T) {
+	result := fibonacciBinet(50)
+	assert.Equal(t, fb50, result)
+}
+
+//Error:      	Not equal:
+//expected: 0x533163ef0321e5
+//actual  : 0x533163ef0321dc
+//Test:       	TestFibonacciBinet_80
+//--- FAIL: TestFibonacciBinet_80 (0.00s)
+func TestFibonacciBinet_80(t *testing.T) {
+	result := fibonacciBinet(80)
+	assert.Equal(t, fb80, result)
+}
+
+//Error:      	Not equal:
+//expected: 0x27f80ddaa1ba7878
+//actual  : 0x27f80ddaa1ba7600
+//Test:       	TestFibonacciBinet_90
+//--- FAIL: TestFibonacciBinet_90 (0.00s)
+func TestFibonacciBinet_90(t *testing.T) {
+	result := fibonacciBinet(90)
+	assert.Equal(t, fb90, result)
+}
+
+// BenchmarkFibonacciBinet_40-8   	24540102	        42.4 ns/op
+func BenchmarkFibonacciBinet_40(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacciBinet(40)
+	}
+}
+
+// BenchmarkFibonacciBinet_90-8   	27428461	        43.5 ns/op
+func BenchmarkFibonacciBinet_90(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacciBinet(90)
+	}
+}
